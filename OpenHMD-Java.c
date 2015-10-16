@@ -1,5 +1,6 @@
 #include <jni.h>
 #include "OpenHMD-Java.h"
+#include "openhmd.h"
 
 JNIEXPORT jlong JNICALL Java_OpenHMD_ohmd_ctx_create(JNIEnv* env, jobject obj);
 {

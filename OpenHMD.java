@@ -2,7 +2,7 @@ public class OpenHMD
 {
 	static 
 	{
-		System.load("OpenHMD");
+		System.load("/home/koen/Code/OpenHMD-Java/libOpenHMD.so");
 	}
 	
 	public static native long 		ohmd_ctx_create();

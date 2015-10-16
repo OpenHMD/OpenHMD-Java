@@ -5,7 +5,7 @@
 #include <jni.h>
 
 jlong Java_OpenHMD_ohmd_1ctx_1create
-  (JNIEnv *env, jobject obj)
+  (JNIEnv *env, jclass cls)
 {
 	//Create the context and pass pointer as long to Java
 	ohmd_context* ctx = ohmd_ctx_create();
@@ -14,7 +14,7 @@ jlong Java_OpenHMD_ohmd_1ctx_1create
 }
 
 void Java_OpenHMD_ohmd_1ctx_1destroy
-  (JNIEnv *env, jobject obj, jlong context)
+  (JNIEnv *env, jclass cls, jlong context)
 {
 	//Destroy the context
 	ohmd_context* ctx = (ohmd_context*)context;
@@ -22,7 +22,7 @@ void Java_OpenHMD_ohmd_1ctx_1destroy
 }
 
 jstring Java_OpenHMD_ohmd_1ctx_1get_1error
-  (JNIEnv *env, jobject obj, jlong context)
+  (JNIEnv *env, jclass cls, jlong context)
 {
 	//Call get_error and return the error code
 	ohmd_context* ctx = (ohmd_context*)context;
@@ -35,14 +35,14 @@ jstring Java_OpenHMD_ohmd_1ctx_1get_1error
 }
 
 void Java_OpenHMD_ohmd_1ctx_1update
-  (JNIEnv *env, jobject obj, jlong context)
+  (JNIEnv *env, jclass cls, jlong context)
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	ohmd_ctx_update(ctx);
 }
 
 jint Java_OpenHMD_ohmd_1ctx_1probe
-  (JNIEnv *env, jobject obj, jlong context)
+  (JNIEnv *env, jclass cls, jlong context)
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 
@@ -50,7 +50,7 @@ jint Java_OpenHMD_ohmd_1ctx_1probe
 }
 
 jstring Java_OpenHMD_ohmd_1list_1gets
-  (JNIEnv *env, jobject obj, jlong context, jint index, jint type)
+  (JNIEnv *env, jclass cls, jlong context, jint index, jint type)
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	const char* creturn = ohmd_list_gets(ctx, index, type);
@@ -62,7 +62,7 @@ jstring Java_OpenHMD_ohmd_1list_1gets
 }
 
 jlong Java_OpenHMD_ohmd_1list_1open_1device
-  (JNIEnv *env, jobject obj, jlong context, jint index)
+  (JNIEnv *env, jclass cls, jlong context, jint index)
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	ohmd_device* dev = ohmd_list_open_device(ctx, index);
@@ -73,7 +73,7 @@ jlong Java_OpenHMD_ohmd_1list_1open_1device
 }
 
 jint Java_OpenHMD_ohmd_1close_1device
-  (JNIEnv *env, jobject obj, jlong context)
+  (JNIEnv *env, jclass cls, jlong context)
 {
 	ohmd_device* dev = (ohmd_device*)context;
 
@@ -82,7 +82,7 @@ jint Java_OpenHMD_ohmd_1close_1device
 }
 
 jfloatArray Java_OpenHMD_ohmd_1device_1getf
-  (JNIEnv *env, jobject obj, jlong device, jint type)
+  (JNIEnv *env, jclass cls, jlong device, jint type)
 {
 	ohmd_device* dev = (ohmd_device*)device;
 
@@ -254,7 +254,7 @@ jfloatArray Java_OpenHMD_ohmd_1device_1getf
 }
 
 jint Java_OpenHMD_ohmd_1device_1setf
-  (JNIEnv *env, jobject obj, jlong context, jint type, jfloatArray in)
+  (JNIEnv *env, jclass cls, jlong context, jint type, jfloatArray in)
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 
@@ -263,7 +263,7 @@ jint Java_OpenHMD_ohmd_1device_1setf
 }
 
 jintArray Java_OpenHMD_ohmd_1device_1geti
-  (JNIEnv *env, jobject obj, jlong device, jint type)
+  (JNIEnv *env, jclass cls, jlong device, jint type)
 {
 	/*
 	ohmd_context* ctx = (ohmd_context*)context;

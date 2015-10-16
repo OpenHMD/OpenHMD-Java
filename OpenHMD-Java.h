@@ -13,7 +13,7 @@ extern "C" {
  * Signature: ()J
  */
 JNIEXPORT jlong JNICALL Java_OpenHMD_ohmd_1ctx_1create
-  (JNIEnv *, jobject);
+  (JNIEnv *, jclass);
 
 /*
  * Class:     OpenHMD
@@ -21,7 +21,7 @@ JNIEXPORT jlong JNICALL Java_OpenHMD_ohmd_1ctx_1create
  * Signature: (J)V
  */
 JNIEXPORT void JNICALL Java_OpenHMD_ohmd_1ctx_1destroy
-  (JNIEnv *, jobject, jlong);
+  (JNIEnv *, jclass, jlong);
 
 /*
  * Class:     OpenHMD
@@ -29,7 +29,7 @@ JNIEXPORT void JNICALL Java_OpenHMD_ohmd_1ctx_1destroy
  * Signature: (J)Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_OpenHMD_ohmd_1ctx_1get_1error
-  (JNIEnv *, jobject, jlong);
+  (JNIEnv *, jclass, jlong);
 
 /*
  * Class:     OpenHMD
@@ -37,7 +37,7 @@ JNIEXPORT jstring JNICALL Java_OpenHMD_ohmd_1ctx_1get_1error
  * Signature: (J)V
  */
 JNIEXPORT void JNICALL Java_OpenHMD_ohmd_1ctx_1update
-  (JNIEnv *, jobject, jlong);
+  (JNIEnv *, jclass, jlong);
 
 /*
  * Class:     OpenHMD
@@ -45,7 +45,7 @@ JNIEXPORT void JNICALL Java_OpenHMD_ohmd_1ctx_1update
  * Signature: (J)I
  */
 JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_1ctx_1probe
-  (JNIEnv *, jobject, jlong);
+  (JNIEnv *, jclass, jlong);
 
 /*
  * Class:     OpenHMD
@@ -53,7 +53,7 @@ JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_1ctx_1probe
  * Signature: (JII)Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_OpenHMD_ohmd_1list_1gets
-  (JNIEnv *, jobject, jlong, jint, jint);
+  (JNIEnv *, jclass, jlong, jint, jint);
 
 /*
  * Class:     OpenHMD
@@ -61,7 +61,7 @@ JNIEXPORT jstring JNICALL Java_OpenHMD_ohmd_1list_1gets
  * Signature: (JI)J
  */
 JNIEXPORT jlong JNICALL Java_OpenHMD_ohmd_1list_1open_1device
-  (JNIEnv *, jobject, jlong, jint);
+  (JNIEnv *, jclass, jlong, jint);
 
 /*
  * Class:     OpenHMD
@@ -69,7 +69,7 @@ JNIEXPORT jlong JNICALL Java_OpenHMD_ohmd_1list_1open_1device
  * Signature: (J)I
  */
 JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_1close_1device
-  (JNIEnv *, jobject, jlong);
+  (JNIEnv *, jclass, jlong);
 
 /*
  * Class:     OpenHMD
@@ -77,7 +77,7 @@ JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_1close_1device
  * Signature: (JI)[F
  */
 JNIEXPORT jfloatArray JNICALL Java_OpenHMD_ohmd_1device_1getf
-  (JNIEnv *, jobject, jlong, jint);
+  (JNIEnv *, jclass, jlong, jint);
 
 /*
  * Class:     OpenHMD
@@ -85,7 +85,7 @@ JNIEXPORT jfloatArray JNICALL Java_OpenHMD_ohmd_1device_1getf
  * Signature: (JI[F)I
  */
 JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_1device_1setf
-  (JNIEnv *, jobject, jlong, jint, jfloatArray);
+  (JNIEnv *, jclass, jlong, jint, jfloatArray);
 
 /*
  * Class:     OpenHMD
@@ -93,7 +93,7 @@ JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_1device_1setf
  * Signature: (JI)[I
  */
 JNIEXPORT jintArray JNICALL Java_OpenHMD_ohmd_1device_1geti
-  (JNIEnv *, jobject, jlong, jint);
+  (JNIEnv *, jclass, jlong, jint);
 
 #ifdef __cplusplus
 }

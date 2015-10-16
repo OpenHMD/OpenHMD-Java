@@ -1,20 +1,20 @@
 #include <jni.h>
 #include "OpenHMD-Java.h"
 
-JNIEXPORT jlong JNICALL Java_OpenHMD_ohmd_ctx_create();
+JNIEXPORT jlong JNICALL Java_OpenHMD_ohmd_ctx_create(JNIEnv* env, jobject obj);
 {
 	//Create the context and pass pointer as long to Java
 	ohmd_context* ctx = ohmd_ctx_create();
 	return (long)ctx;
 }
 
-JNIEXPORT void JNICALL Java_ohmd_ctx_destroy(jlong context);
+JNIEXPORT void JNICALL Java_ohmd_ctx_destroy(JNIEnv* env, jobject obj, jlong context);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	ohmd_ctx_destroy(ctx);
 }
 
-JNIEXPORT jstring JNICALL Java_OpenHMD_OpenHMD_ohmd_ctx_get_error(jlong context);
+JNIEXPORT jstring JNICALL Java_OpenHMD_OpenHMD_ohmd_ctx_get_error(JNIEnv* env, jobject obj, jlong context);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	const char* cerror = ohmd_ctx_get_error(ctx);
@@ -25,19 +25,19 @@ JNIEXPORT jstring JNICALL Java_OpenHMD_OpenHMD_ohmd_ctx_get_error(jlong context)
 	return error;
 }
 
-JNIEXPORT void JNICALL Java_OpenHMD_ohmd_ctx_update(jlong context);
+JNIEXPORT void JNICALL Java_OpenHMD_ohmd_ctx_update(JNIEnv* env, jobject obj, jlong context);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	ohmd_ctx_update(ctx);
 }
 
-JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_ctx_probe(jlong context);
+JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_ctx_probe(JNIEnv* env, jobject obj, jlong context);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	return ohmd_ctx_probe(ctx);
 }
 
-JNIEXPORT jstring JNICALL Java_OpenHMD_ohmd_list_gets(jlong context, jint index, ohmd_string_value type);
+JNIEXPORT jstring JNICALL Java_OpenHMD_ohmd_list_gets(JNIEnv* env, jobject obj, jlong context, jint index, ohmd_string_value type);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	const char* creturn = ohmd_list_gets(ctx, index, type);
@@ -48,7 +48,7 @@ JNIEXPORT jstring JNICALL Java_OpenHMD_ohmd_list_gets(jlong context, jint index,
 	return jreturn;
 }
 
-JNIEXPORT ohmd_device* JNICALL Java_OpenHMD_ohmd_list_open_device(jlong context, jint index);
+JNIEXPORT ohmd_device* JNICALL Java_OpenHMD_ohmd_list_open_device(JNIEnv* env, jobject obj, jlong context, jint index);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	ohmd_device* dev = ohmd_list_open_device(ctx, index)
@@ -57,14 +57,14 @@ JNIEXPORT ohmd_device* JNICALL Java_OpenHMD_ohmd_list_open_device(jlong context,
 	
 }
 
-JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_close_device(jlong context);
+JNIEXPORT jint JNICALL Java_OpenHMD_ohmd_close_device(JNIEnv* env, jobject obj, jlong context);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	
 	return ohmd_close_device(device);
 }
 
-JNIEXPORT jfloat* JNICALL Java_OpenHMD_ohmd_device_getf(jlong context, ohmd_float_value type, jfloat* out);
+JNIEXPORT jfloat* JNICALL Java_OpenHMD_ohmd_device_getf(JNIEnv* env, jobject obj, jlong context, ohmd_float_value type, jfloat* out);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	float* cout;
@@ -76,14 +76,14 @@ JNIEXPORT jfloat* JNICALL Java_OpenHMD_ohmd_device_getf(jlong context, ohmd_floa
 	return jout;
 }
 
-JNIEXPORT jint* JNICALL Java_OpenHMD_ohmd_device_setf(jlong context, ohmd_float_value type, jfloat* in);
+JNIEXPORT jint* JNICALL Java_OpenHMD_ohmd_device_setf(JNIEnv* env, jobject obj, jlong context, ohmd_float_value type, jfloat* in);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	
 	return ohmd_device_setf(device, type, in);
 }
 
-JNIEXPORT jint* JNICALL Java_OpenHMD_ohmd_device_geti(jlong context, ohmd_int_value type, jint* out);
+JNIEXPORT jint* JNICALL Java_OpenHMD_ohmd_device_geti(JNIEnv* env, jobject obj, jlong context, ohmd_int_value type, jint* out);
 {
 	ohmd_context* ctx = (ohmd_context*)context;
 	int* cout;
